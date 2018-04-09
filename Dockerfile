@@ -46,3 +46,9 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log \
 
 COPY docker-entrypoint.sh /usr/local/bin/
 ENTRYPOINT [ "docker-entrypoint.sh" ]
+
+RUN mkdir -p /var/log/supervisor
+COPY supervisord.conf /etc/supervisord.conf
+COPY stop-supervisor.sh /usr/local/bin/
+
+CMD [ "/usr/bin/supervisord", "-c", "/etc/supervisord.conf" ]
