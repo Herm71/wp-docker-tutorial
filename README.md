@@ -43,7 +43,7 @@ mkdir redis
 
 ### Create local `wp-content` directory
 
-If this is a brand-new project, you can simply copy the `wp-content` directory from the official WordPress install by cloning it into a new directory and copying the `wp-content` directory into your project directory. If you have an existing project, use its `wp-content` directory.
+If this is a brand-new project, you can simply copy the `wp-content` directory from the [official WordPress repository](https://github.com/WordPress/WordPress) by cloning it into a new directory and copying the `wp-content` directory into your project directory. If you have an existing project, use its `wp-content` directory.
 
 ### Fire it up!
 
