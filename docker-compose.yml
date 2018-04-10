@@ -1,29 +1,35 @@
 version: '2'
 services:
-  my-nginx:
+  wordpress:
     build: .
     volumes:
-      - .:/var/www/html
+      - ./wp-content:/var/www/wp-content
+    env_file: .env
     ports:
       - "8080:80"
     links:
-      - my-php
-  my-php:
-    build:
-      context: .
-      dockerfile: Dockerfile.php-fpm
+      - mysql
+      - redis
+  cron:
+    build: .
+    command: crond -f -l 6 -L /dev/stdout
     volumes:
-      - .:/var/www/html
-    ports:
-      - "9000:9000"
+      - ./wp-content:/var/www/wp-content
+    env_file: .env
     links:
-      - my-mysql
-  my-mysql:
+      - mysql
+      - redis
+  mysql:
     image: mariadb:5.5
     volumes:
-      - /var/lib/mysql
+      - ./mysql:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: wp
       MYSQL_DATABASE: wp
       MYSQL_USER: wp
       MYSQL_PASSWORD: wp
+  redis:
+    image: redis:3.2.0-alpine
+    command: redis-server --appendonly yes
+    volumes:
+      - ./redis:/data
