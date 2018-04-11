@@ -20,7 +20,7 @@ services:
       - mysql
       - redis
   mysql:
-    image: mariadb:latest
+    image: mariadb
     volumes:
       - ./mysql:/docker-entrypoint-initdb.d
     environment:
