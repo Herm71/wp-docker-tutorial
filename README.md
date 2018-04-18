@@ -45,7 +45,7 @@ mkdir redis
 
 If this is a brand-new project, you can simply copy the `wp-content` directory from the [official WordPress repository](https://github.com/WordPress/WordPress) by cloning it into a new directory and copying the `wp-content` directory into your project directory. If you have an existing project, use its `wp-content` directory.
 
-### Fire it up!
+### Fire it up
 
 ```console
 $ docker-compose build
@@ -56,4 +56,5 @@ $ docker-compose up
 You should now have a fresh WordPress install at [http://localhost:8080](http://localhost:8080). Complete the [Famous 5-Minute Installation](https://codex.wordpress.org/Installing_WordPress#Famous_5-Minute_Installation), log in, and you're off to the races! In order to stop or shut down the instance, hit `ctrl-c`. To restart the instance, type `docker-compose up` again (it is not necessary to re-build the instance).
 
 ## Development
+
 Now that you have a local `wp-content` directory, you can do all your development locally, clone, develop, and commit theme or plugin repos inside this local directory and they will be reflected in your dockerized WordPress site!

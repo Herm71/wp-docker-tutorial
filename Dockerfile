@@ -1,5 +1,5 @@
 FROM php:7.0.6-fpm-alpine
-MAINTAINER Jason Chafin <jchafin@ucsc.edu>
+LABEL maintainer="jasonchafin@ucsc.edu"
 
 # We need these system-level scritps to run WordPress successfully
 RUN apk add --no-cache nginx mysql-client supervisor curl \
